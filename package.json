@@ -1,0 +1,22 @@
+{
+  "name": "firstcommit",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "cal-sans": "^1.0.1",
+    "nuxt": "npm:nuxt3@3.7.0-28212954.a2f2a474",
+    "valibot": "^0.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.17.8"
+  }
+}
