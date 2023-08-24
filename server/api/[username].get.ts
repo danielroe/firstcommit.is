@@ -20,9 +20,15 @@ export default defineCachedEventHandler(async event => {
       sort: 'committer-date',
       per_page: 1
     }
-  }).then(r => ResultsSchema._parse(r).output)
-  const firstCommit = results?.items[0]
-  if (!firstCommit) throw createError({ statusCode: 404, message: 'no commits found' })
+  })
+  const firstCommit = ResultsSchema._parse(results).output?.items[0]
+  if (!firstCommit) {
+    // @ts-expect-error unknown
+    if (results?.total_count) {
+      console.log(JSON.stringify(ResultsSchema._parse(results).issues))
+    }
+    throw createError({ statusCode: 404, message: 'no commits found' })
+  }
 
   return firstCommit
 }) as EventHandler<{}, Output<typeof ResultsSchema>['items'][number]>
@@ -34,7 +40,6 @@ const ResultsSchema = v.object({
     repository: v.object({
       full_name: v.string(),
       html_url: v.string(),
-      description: v.string(),
       owner: v.object({
         avatar_url: v.string(),
         login: v.string(),
