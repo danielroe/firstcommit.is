@@ -13,7 +13,9 @@ export default defineNuxtConfig({
     ],
   },
   routeRules: {
-    '/**': { isr: true }
+    '/**': { isr: true },
+    '/oauth/**': { isr: false },
+    '/connect/**': { isr: false }
   },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time'],
   runtimeConfig: {
