@@ -5,7 +5,12 @@ export default defineNuxtConfig({
     typedPages: true
   },
   fontMetrics: {
-    fonts: ['Cal Sans']
+    fonts: [
+      {
+        family: 'Cal Sans',
+        src: '../node_modules/cal-sans/fonts/webfonts/CalSans-SemiBold.woff2'
+      }
+    ],
   },
   routeRules: {
     '/**': { isr: true }
