@@ -20,6 +20,9 @@ dependencies:
   nuxt:
     specifier: npm:nuxt3@3.7.0-28212954.a2f2a474
     version: /nuxt3@3.7.0-28212954.a2f2a474(@types/node@18.17.8)
+  nuxt-time:
+    specifier: ^0.1.1
+    version: 0.1.1
   valibot:
     specifier: ^0.13.1
     version: 0.13.1
@@ -5646,12 +5649,23 @@ packages:
       boolbase: 1.0.0
     dev: false
 
-  /nuxi-ng@0.3.0-1692696984.fb3b85e:
-    resolution: {integrity: sha512-xW4xQo/jiHLrUsyHOh4em4voA4Sdp2zXzCat3lx/jA1Iebo7XQduViDfdnS8Xs3PPJZZ1x4K5clY2guYyDQIYQ==}
+  /nuxi-ng@0.3.0-1692903287.87556d3:
+    resolution: {integrity: sha512-RXcsbgzceVHF0x4P55HvZuNuT/o5jb0F8ouDsXzmYeqdhrWhTiDSYyfg88kD+/8dXX15MGadW3UP803ZvkxSKw==}
     engines: {node: ^14.18.0 || >=16.10.0}
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.3
+    dev: false
+
+  /nuxt-time@0.1.1:
+    resolution: {integrity: sha512-MXgvzAf2+ByCsGc66qP+XbPUZRMVGwbRX5nGXlsyot+uwLVpBqQNnR8b3X46nBaEXEPy/Jqj6qaXwjTk0AYosA==}
+    dependencies:
+      '@nuxt/kit': 3.6.5
+      defu: 6.1.2
+      pathe: 1.1.1
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: false
 
   /nuxt3@3.7.0-28212954.a2f2a474(@types/node@18.17.8):
@@ -5698,7 +5712,7 @@ packages:
       magic-string: 0.30.3
       mlly: 1.4.0
       nitropack: /nitropack-edge@2.6.0-28212707.e5f095d
-      nuxi: /nuxi-ng@0.3.0-1692696984.fb3b85e
+      nuxi: /nuxi-ng@0.3.0-1692903287.87556d3
       nypm: 0.3.0
       ofetch: 1.2.1
       ohash: 1.1.3

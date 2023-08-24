@@ -14,6 +14,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "cal-sans": "^1.0.1",
     "nuxt": "npm:nuxt3@3.7.0-28212954.a2f2a474",
+    "nuxt-time": "^0.1.1",
     "valibot": "^0.13.1"
   },
   "devDependencies": {

@@ -25,12 +25,21 @@ export default defineCachedEventHandler(async event => {
   if (!firstCommit) throw createError({ statusCode: 404, message: 'no commits found' })
 
   return firstCommit
-}) as EventHandler<{}, Output<typeof ResultsSchema>>
+}) as EventHandler<{}, Output<typeof ResultsSchema>['items'][number]>
 
 const ResultsSchema = v.object({
   total_count: v.number(),
   items: v.array(v.object({
     html_url: v.string(),
+    repository: v.object({
+      full_name: v.string(),
+      html_url: v.string(),
+      description: v.string(),
+      owner: v.object({
+        avatar_url: v.string(),
+        login: v.string(),
+      })
+    }),
     commit: v.object({
       message: v.string(),
       author: v.object({

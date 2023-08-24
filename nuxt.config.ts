@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   fontMetrics: {
     fonts: ['Cal Sans']
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time'],
   runtimeConfig: {
     url: 'http://localhost:3000',
     github: {
