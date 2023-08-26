@@ -84,13 +84,13 @@ useServerSeoMeta({
 const user = useCookie('github-user')
 const message = computed(() => {
   if (user.value === username) {
-    return `Check out my first commit on GitHub!\n\nhttps://firstcommit.is/${username}`
+    return `Check out my first commit on GitHub!`
   }
   
-  return `Check out ${username}'s first commit on GitHub.\n\nhttps://firstcommit.is/${username}`
+  return `Check out ${username}'s first commit on GitHub.`
 
 })
-const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value)}`)
+const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${username}`)}`)
 
 async function nativeShare() {
   try {
