@@ -58,6 +58,14 @@
         </div>
       </div>
     </main>
+    <nav class="flex flex-row justify-center">
+      <NuxtLink
+        class="p-4 text-sm"
+        href="/"
+      >
+        &laquo; go back
+      </NuxtLink>
+    </nav>
   </div>
 </template>
 
