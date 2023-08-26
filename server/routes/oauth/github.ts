@@ -41,5 +41,7 @@ export default defineEventHandler(async event => {
     },
   })
 
+  setCookie(event, 'github-user', ghUser.login)
+
   return await sendRedirect(event, `/${ghUser.login}`)
 })
