@@ -7,34 +7,34 @@
       <header class="relative flex flex-row items-center gap-4">
         <NuxtTime
           class="absolute font-cal tabular-nums right-0 top-0"
-          :datetime="commit.commit.author.date"
+          :datetime="commit.date"
           year="numeric"
         />
         <img
           class="rounded-full h-16 w-16"
-          :src="commit.author.avatar_url"
-          :alt="`Avatar for ${commit.author.login}`"
+          :src="commit.avatar"
+          :alt="`Avatar for ${commit.username}`"
         >
         <div class="flex flex-col items-start gap-2">
-          <span class="leading-none text-lg font-cal font-semibold">{{ commit.commit.author.name }}</span>
-          <span class="leading-none opacity-50 text-sm">@{{ commit.author.login }}</span>
+          <span class="leading-none text-lg font-cal font-semibold">{{ commit.author }}</span>
+          <span class="leading-none opacity-50 text-sm">@{{ commit.username }}</span>
         </div>
       </header>
       <hr class="my-4">
       <div class="flex flex-row items-center justify-between gap-4">
         <NuxtLink
           class="flex flex-col gap-2 line-clamp-1" 
-          :href="commit.html_url"
+          :href="commit.link"
         >
-          <span class="line-clamp-1">{{ commit.commit.message }}</span>
+          <span class="line-clamp-1">{{ commit.message }}</span>
           <span class="text-xs">
             <span class="flex flex-row gap-2">
               <img
                 class="rounded-full h-4 w-4"
-                :src="commit.repository.owner.avatar_url"
-                :alt="`Avatar for ${commit.repository.owner.login}`"
+                :src="commit.org.avatar"
+                :alt="`Avatar for ${commit.org.name}`"
               >
-              {{ commit.repository.full_name }}
+              {{ commit.org.repository }}
             </span>
           </span>
         </NuxtLink>
@@ -85,13 +85,16 @@ definePageMeta({
 const route = useRoute('username')
 const username = route.params.username
 
-const { data: commit } = await useFetch(`/api/${username}`)
+const { data: commit } = await useFetch(`/api/commit/${username}`)
 
 useServerSeoMeta({
   title: 'firstcommit.is - @' + username,
+  ogTitle: 'firstcommit.is - @' + username,
+  twitterTitle: 'firstcommit.is - @' + username,
   description: 'The first commit of ' + username + ' on GitHub',
-  // TODO: show OG image with commit/PR metadata
-  ogImage: commit.value?.author.avatar_url,
+  ogDescription: 'The first commit of ' + username + ' on GitHub',
+  ogImage: commit.value?.ogImage,
+  twitterCard: 'summary_large_image',
 })
 
 const user = useCookie('github-user')
