@@ -85,7 +85,7 @@ definePageMeta({
 const route = useRoute('username')
 const username = route.params.username
 
-const { data: commit } = await useFetch(`/api/${username}`)
+const { data: commit } = await useFetch(`/api/commit/${username}`)
 
 useServerSeoMeta({
   title: 'firstcommit.is - @' + username,

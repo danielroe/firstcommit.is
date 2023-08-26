@@ -1,6 +1,5 @@
 import * as v from 'valibot'
-import type { Output } from 'valibot'
-import type { EventHandler, H3Event } from 'h3'
+import type { H3Event } from 'h3'
 
 export default defineCachedEventHandler(async event => {
   const config = useRuntimeConfig(event)
@@ -31,7 +30,7 @@ export default defineCachedEventHandler(async event => {
   }
 
   return firstCommit
-}) as EventHandler<{}, Output<typeof ResultsSchema>['items'][number]>
+})
 
 const ResultsSchema = v.object({
   total_count: v.number(),
