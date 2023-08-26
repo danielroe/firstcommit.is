@@ -36,7 +36,7 @@
           :disabled="!username.trim()"
           type="submit"
           class="my-2 mr-2 flex-shrink-0 rounded border-transparent border-2 bg-black text-white 
-          border-black hover:bg-white hover:text-black shadow transition-colors p-1"
+          hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
