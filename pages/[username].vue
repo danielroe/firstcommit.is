@@ -73,7 +73,12 @@
 import 'cal-sans'
 
 definePageMeta({
-  alias: ['/commit/:username']
+  alias: ['/commit/:username'],
+  middleware: to => {
+    if (to.path !== to.path.toLowerCase()) {
+      return to.path.toLowerCase()
+    }
+  }
 })
 
 

@@ -29,7 +29,7 @@
         <input
           v-model="username"
           type="text"
-          class="pl-2 py-2"
+          class="pl-2 py-2 lowercase"
           placeholder="danielroe"
         >
         <button
@@ -56,6 +56,6 @@
 <script setup>
 const username = ref('')
 function openCommit () {
-  return navigateTo(`/${username.value}`)
+  return navigateTo(`/${username.value.toLowerCase()}`)
 }
 </script>
