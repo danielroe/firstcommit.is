@@ -89,8 +89,12 @@ const { data: commit } = await useFetch(`/api/commit/${username}`)
 
 useServerSeoMeta({
   title: 'firstcommit.is - @' + username,
+  ogTitle: 'firstcommit.is - @' + username,
+  twitterTitle: 'firstcommit.is - @' + username,
   description: 'The first commit of ' + username + ' on GitHub',
+  ogDescription: 'The first commit of ' + username + ' on GitHub',
   ogImage: commit.value?.ogImage,
+  twitterCard: 'summary_large_image',
 })
 
 const user = useCookie('github-user')

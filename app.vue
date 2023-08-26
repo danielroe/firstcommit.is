@@ -1,5 +1,8 @@
 <script setup lang="ts">
-// 
+useServerSeoMeta({
+  ogSiteName: 'firstcommit.is',
+  twitterSite: '@danielcroe',
+})
 </script>
 
 <template>
