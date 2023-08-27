@@ -14,13 +14,12 @@
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "cal-sans": "^1.0.1",
-    "nuxt": "npm:nuxt3@3.7.0-28212954.a2f2a474",
+    "nuxt": "3.7.0",
     "nuxt-time": "^0.1.1",
     "valibot": "^0.13.1"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.1.1",
-    "@types/node": "^18.17.8",
-    "eslint": "^8.47.0"
+    "eslint": "^8.48.0"
   }
 }
