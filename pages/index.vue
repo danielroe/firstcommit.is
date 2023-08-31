@@ -54,6 +54,11 @@
 </template>
 
 <script setup>
+defineOgImage({
+  title: 'firstcommit.is',
+  component: 'home'
+})
+
 const username = ref('')
 function openCommit () {
   return navigateTo(`/${username.value.toLowerCase()}`)
