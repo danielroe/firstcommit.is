@@ -1,7 +1,7 @@
 import * as v from 'valibot'
 import type { H3Event } from 'h3'
 
-export default defineCachedEventHandler(async event => {
+export default defineEventHandler(async event => {
   const config = useRuntimeConfig(event)
   const username = getRouterParam(event as H3Event<any>, 'username')
   if (!username || !username.match(/^[\w\d]+$/)) throw createError({ message: 'username is required' })

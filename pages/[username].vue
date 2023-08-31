@@ -28,7 +28,7 @@
         >
           <span class="line-clamp-1">{{ commit.message }}</span>
           <span class="text-xs">
-            <span class="flex flex-row gap-2">
+            <span class="flex flex-row gap-2 items-center">
               <img
                 class="rounded-full h-4 w-4"
                 :src="commit.org.avatar"
@@ -95,6 +95,12 @@ useServerSeoMeta({
   ogDescription: 'The first commit of ' + username + ' on GitHub',
   ogImage: commit.value?.ogImage,
   twitterCard: 'summary_large_image',
+})
+
+defineOgImage({
+  title: username,
+  commit,
+  component: 'user-card'
 })
 
 const user = useCookie('github-user')
