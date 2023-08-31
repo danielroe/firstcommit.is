@@ -27,11 +27,7 @@ export default defineNuxtConfig({
   ogImage: {
     fonts: [
       'Inter:400',
-      // {
-      //   name: 'Cal Sans',
-      //   weight: 800,
-      //   path: '/fonts/CalSans-SemiBold.woff2'
-      // }
+      'Inter:700',
     ]
   },
   nitro: {
