@@ -39,6 +39,7 @@ export default defineEventHandler(async event => {
     message: commit.commit.message,
     username: commit.author.login,
     author: commit.commit.author.name,
+    authorUrl: commit.author.html_url,
     org: {
       avatar: commit.repository.owner.avatar_url,
       name: commit.repository.owner.login,

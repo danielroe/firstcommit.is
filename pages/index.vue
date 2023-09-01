@@ -31,6 +31,7 @@
           type="text"
           class="flex-grow pl-2 py-2 lowercase"
           placeholder="danielroe"
+          autocapitalize="off"
         >
         <button
           :disabled="!username.trim()"
@@ -68,8 +69,8 @@ useSeoMeta({
 useServerSeoMeta({
   ogTitle: 'firstcommit.is',
   twitterTitle: 'firstcommit.is',
-  description: 'Find your first open-source commit on on GitHub.',
-  ogDescription: 'Find your first open-source commit on on GitHub.',
+  description: 'Find your first open-source commit on GitHub.',
+  ogDescription: 'Find your first open-source commit on GitHub.',
   twitterCard: 'summary_large_image',
 })
 
