@@ -18,7 +18,12 @@ defineProps({
         class="flex flex-col overflow-hidden max-w-[800px]"
         style="gap: 2rem" 
       >
-        <span class="text-5xl overflow-hidden font-bold">firstcommit.is</span>
+        <span
+          style="font-family: Cal Sans;"
+          class="text-7xl overflow-hidden font-bold"
+        >
+          firstcommit.is
+        </span>
       </div>
       <div
         class="flex flex-row"
@@ -44,10 +49,6 @@ defineProps({
 </template>
 
 <style scoped>
-.font-heading {
-  font-family: 'Inter';
-  font-weight: 700;
-}
 .font-sans {
   font-family: 'Inter';
   font-weight: 400;

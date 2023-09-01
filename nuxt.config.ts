@@ -28,6 +28,11 @@ export default defineNuxtConfig({
     fonts: [
       'Inter:400',
       'Inter:700',
+      {
+        name: 'Cal Sans',
+        weight: 600,
+        path: '/fonts/CalSans-SemiBold.woff'
+      }
     ]
   },
   plausible: {
@@ -35,6 +40,10 @@ export default defineNuxtConfig({
     apiHost: '/v',
   },
   nitro: {
+    serveStatic: true,
+    prerender: {
+      routes: ['/']
+    },
     publicAssets: [
       {
         baseURL: '/fonts',
