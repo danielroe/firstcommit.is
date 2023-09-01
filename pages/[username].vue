@@ -136,6 +136,7 @@
           type="text"
           class="pl-2 py-2 lowercase flex-1"
           :placeholder="username"
+          autocapitalize="off"
         >
         <button
           :disabled="!username.trim()"

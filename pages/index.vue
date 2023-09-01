@@ -31,6 +31,7 @@
           type="text"
           class="flex-grow pl-2 py-2 lowercase"
           placeholder="danielroe"
+          autocapitalize="off"
         >
         <button
           :disabled="!username.trim()"
