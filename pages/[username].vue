@@ -130,8 +130,11 @@ function openCommit () {
 
 const { data: commit } = await useFetch(`/api/commit/${username}`)
 
-useServerSeoMeta({
+useSeoMeta({
   title: 'firstcommit.is - @' + username,
+})
+
+useServerSeoMeta({
   ogTitle: 'firstcommit.is - @' + username,
   twitterTitle: 'firstcommit.is - @' + username,
   description: 'The first commit of ' + username + ' on GitHub',

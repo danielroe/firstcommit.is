@@ -59,6 +59,18 @@ defineOgImage({
   component: 'home'
 })
 
+useSeoMeta({
+  title: 'firstcommit.is',
+})
+
+useServerSeoMeta({
+  ogTitle: 'firstcommit.is',
+  twitterTitle: 'firstcommit.is',
+  description: 'Find your first open-source commit on on GitHub.',
+  ogDescription: 'Find your first open-source commit on on GitHub.',
+  twitterCard: 'summary_large_image',
+})
+
 const username = ref('')
 function openCommit () {
   return navigateTo(`/${username.value.toLowerCase()}`)

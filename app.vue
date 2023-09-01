@@ -3,6 +3,11 @@ useServerSeoMeta({
   ogSiteName: 'firstcommit.is',
   twitterSite: '@danielcroe',
 })
+useServerHead({
+  htmlAttrs: {
+    lang: 'en',
+  }
+})
 </script>
 
 <template>
