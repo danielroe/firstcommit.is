@@ -1,6 +1,6 @@
 <template>
   <div class="flex-grow flex flex-col mx-auto justify-center p-2 ">
-    <main class="p-8 m-2 max-w-[500px] w-full mx-auto flex-col flex items-center gap-4">
+    <main class="p-8 m-2 max-w-[500px] w-full mx-auto flex-col flex gap-4">
       <NuxtLink
         class="rounded bg-black text-white shadow px-3 py-2 flex flex-row gap-2 items-center"
         href="/connect/github"
@@ -19,7 +19,7 @@
         </svg>
         Find your first commit
       </NuxtLink>
-      <span class="text-sm flex flex-row gap-2 items-center before:border-t-2 before:border-gray-400 before:content-[''] before:w-2 before:h-0 before:inline-block after:border-t-2 after:border-gray-400 after:content-[''] after:w-2 after:h-0 after:inline-block">
+      <span class="mx-auto text-sm flex flex-row gap-2 items-center before:border-t-2 before:border-gray-400 before:content-[''] before:w-2 before:h-0 before:inline-block after:border-t-2 after:border-gray-400 after:content-[''] after:w-2 after:h-0 after:inline-block">
         or enter username
       </span>
       <form
