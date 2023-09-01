@@ -24,7 +24,10 @@
           :src="commit.avatar"
           :alt="`Avatar for ${commit.username}`"
         >
-        <div class="flex flex-col items-start gap-2">
+        <NuxtLink
+          class="flex flex-col items-start gap-2"
+          :to="commit?.authorUrl"
+        >
           <div
             v-if="!commit"
             class="leading-none text-lg font-cal font-semibold h-5 w-32 animate-pulse bg-gray-400"
@@ -45,7 +48,7 @@
           >
             @{{ commit.username }}
           </span>
-        </div>
+        </NuxtLink>
       </header>
       <hr class="my-4">
       <div class="flex flex-row items-center justify-between gap-4">
