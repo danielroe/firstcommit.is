@@ -14,11 +14,14 @@ export default defineEventHandler(async event => {
       Accept: 'application/vnd.github+json'
     },
     query: {
-      q: `author:${username}`,
+      q: `author:${encodeURIComponent(username)}`,
       order: 'asc',
       sort: 'committer-date',
       per_page: 1
     }
+  }).catch((e) => {
+    console.error(e)
+    throw createError({ statusCode: 404, message: 'no user found' })
   })
   const commit = ResultsSchema._parse(results).output?.items[0]
   if (!commit) {
