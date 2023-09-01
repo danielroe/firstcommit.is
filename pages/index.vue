@@ -29,7 +29,7 @@
         <input
           v-model="username"
           type="text"
-          class="pl-2 py-2 lowercase"
+          class="flex-grow pl-2 py-2 lowercase"
           placeholder="danielroe"
         >
         <button
