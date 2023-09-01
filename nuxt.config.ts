@@ -31,7 +31,7 @@ export default defineNuxtConfig({
       {
         name: 'Cal Sans',
         weight: 600,
-        path: '/fonts/CalSans-SemiBold.woff'
+        path: 'https://cdn.jsdelivr.net/npm/cal-sans@1.0.1/fonts/webfonts/CalSans-SemiBold.woff'
       }
     ]
   },
@@ -40,7 +40,6 @@ export default defineNuxtConfig({
     apiHost: '/v',
   },
   nitro: {
-    serveStatic: true,
     prerender: {
       routes: ['/']
     },
