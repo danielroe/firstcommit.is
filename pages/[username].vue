@@ -1,40 +1,88 @@
 <template>
   <div class="flex-grow flex flex-col justify-center p-2 gap-6">
     <main
-      v-if="commit"
       class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-gray-600 rounded-md"
     >
       <header class="relative flex flex-row items-center gap-4">
+        <div
+          v-if="!commit"
+          class="absolute font-cal tabular-nums right-0 top-0 h-6 w-16 animate-pulse bg-gray-400"
+        />
         <NuxtTime
+          v-else
           class="absolute font-cal tabular-nums right-0 top-0"
           :datetime="commit.date"
           year="numeric"
         />
+        <div
+          v-if="!commit"
+          class="rounded-full h-16 w-16 animate-pulse bg-gray-400"
+        />
         <img
+          v-else 
           class="rounded-full h-16 w-16"
           :src="commit.avatar"
           :alt="`Avatar for ${commit.username}`"
         >
         <div class="flex flex-col items-start gap-2">
-          <span class="leading-none text-lg font-cal font-semibold">{{ commit.author }}</span>
-          <span class="leading-none opacity-50 text-sm">@{{ commit.username }}</span>
+          <div
+            v-if="!commit"
+            class="leading-none text-lg font-cal font-semibold h-5 w-32 animate-pulse bg-gray-400"
+          />
+          <span
+            v-else
+            class="leading-none text-lg font-cal font-semibold"
+          >
+            {{ commit.author }}
+          </span>
+          <div
+            v-if="!commit"
+            class="leading-none opacity-50 text-sm h-4 w-24 animate-pulse bg-gray-400"
+          />
+          <span
+            v-else
+            class="leading-none opacity-50 text-sm"
+          >
+            @{{ commit.username }}
+          </span>
         </div>
       </header>
       <hr class="my-4">
       <div class="flex flex-row items-center justify-between gap-4">
         <NuxtLink
           class="flex flex-col gap-2 line-clamp-1" 
-          :href="commit.link"
+          :href="commit?.link"
         >
-          <span class="line-clamp-1">{{ commit.message }}</span>
+          <div
+            v-if="!commit"
+            class="h-5 w-64 animate-pulse bg-gray-300"
+          />
+          <span
+            v-else
+            class="line-clamp-1"
+          >
+            {{ commit.message }}
+          </span>
           <span class="text-xs">
             <span class="flex flex-row gap-2 items-center">
+              <div
+                v-if="!commit"
+                class="rounded-full h-4 w-4 animate-pulse bg-gray-200"
+              />
               <img
+                v-else
                 class="rounded-full h-4 w-4"
                 :src="commit.org.avatar"
                 :alt="`Avatar for ${commit.org.name}`"
               >
-              {{ commit.org.repository }}
+              <div
+                v-if="!commit"
+                class="h-4 w-48 animate-pulse bg-gray-200"
+              />
+              <span
+                v-else
+                v-text="commit.org.repository"
+              />
             </span>
           </span>
         </NuxtLink>
@@ -128,7 +176,19 @@ function openCommit () {
   return navigateTo(`/${newUsername.value.toLowerCase()}`)
 }
 
-const { data: commit } = await useFetch(`/api/commit/${username}`)
+const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
+  lazy: true
+})
+
+if (process.server && !commit.value) {
+  throw createError({ statusCode: 404 })
+}
+
+if (process.client && !useNuxtApp().isHydrating) {
+  watch(error, err => {
+    if (err) { showError(err) }
+  })
+}
 
 useSeoMeta({
   title: 'firstcommit.is - @' + username,
