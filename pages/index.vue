@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen grid place-content-center">
+  <div class="flex-grow flex flex-col mx-auto justify-center p-2 ">
     <main class="p-8 m-2 max-w-[500px] w-full mx-auto flex-col flex items-center gap-4">
       <NuxtLink
         class="rounded bg-black text-white shadow px-3 py-2 flex flex-row gap-2 items-center"
