@@ -4,7 +4,7 @@ import type { H3Event } from 'h3'
 export default defineEventHandler(async event => {
   const config = useRuntimeConfig(event)
   const username = getRouterParam(event as H3Event<any>, 'username')
-  if (!username || !username.match(/^[\w\d]+$/)) throw createError({ message: 'username is required' })
+  if (!username || !username.match(/^[\w\-\d]+$/)) throw createError({ message: 'username is required' })
 
   const results = await $fetch('/search/commits', {
     baseURL: 'https://api.github.com',
