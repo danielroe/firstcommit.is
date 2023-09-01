@@ -67,8 +67,8 @@ useSeoMeta({
 useServerSeoMeta({
   ogTitle: 'firstcommit.is',
   twitterTitle: 'firstcommit.is',
-  description: 'Find your first open-source commit on on GitHub.',
-  ogDescription: 'Find your first open-source commit on on GitHub.',
+  description: 'Find your first open-source commit on GitHub.',
+  ogDescription: 'Find your first open-source commit on GitHub.',
   twitterCard: 'summary_large_image',
 })
 
