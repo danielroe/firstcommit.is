@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   },
   plausible: {
     domain: 'firstcommit.is',
-    apiHost: '/v',
+    apiHost: '/_v',
   },
   nitro: {
     prerender: {
@@ -52,12 +52,12 @@ export default defineNuxtConfig({
     ]
   },
   routeRules: {
-    '/v/**': { proxy: 'https://v.roe.dev/**' }
+    '/_v/**': { proxy: 'https://v.roe.dev/**' }
   },
   $production: {
     routeRules: {
       '/**': { isr: true },
-      '/v/**': { isr: false },
+      '/_v/**': { isr: false },
       '/oauth/**': { isr: false },
       '/connect/**': { isr: false }
     }
