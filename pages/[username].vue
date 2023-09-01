@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow flex flex-col justify-center p-2 gap-4">
+  <div class="flex-grow flex flex-col justify-center p-2 gap-6">
     <main
       v-if="commit"
       class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-gray-600 rounded-md"
