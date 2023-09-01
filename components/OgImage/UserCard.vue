@@ -20,7 +20,8 @@ defineProps({
       style="gap: 2rem"
     >
       <NuxtTime
-        class="font-heading absolute text-5xl font-semibold right-8 top-8"
+        style="font-family: Cal Sans;"
+        class=" absolute text-5xl font-semibold right-8 top-8"
         
         :datetime="commit.date"
         year="numeric"
@@ -35,7 +36,8 @@ defineProps({
         style="gap: 1rem;"
       >
         <span
-          class="font-heading leading-none text-5xl font-semibold"
+          style="font-family: Cal Sans;"
+          class=" leading-none text-5xl font-semibold"
         >{{ commit.author }}</span>
         <span class="leading-none text-4xl opacity-50">@{{ commit.username }}</span>
       </div>
@@ -87,10 +89,6 @@ defineProps({
 </template>
 
 <style scoped>
-.font-heading {
-  font-family: 'Inter';
-  font-weight: 700;
-}
 .font-sans {
   font-family: 'Inter';
   font-weight: 400;
