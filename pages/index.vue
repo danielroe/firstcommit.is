@@ -54,6 +54,8 @@
 </template>
 
 <script setup>
+import {toast} from "~/lib/toast"
+
 defineOgImage({
   title: 'firstcommit.is',
   component: 'home'
@@ -72,7 +74,13 @@ useServerSeoMeta({
 })
 
 const username = ref('')
-function openCommit () {
+
+async function openCommit () {
+  const response = await $fetch(`/api/${username.value}`)
+  if(!response.exists){
+    toast.error("Invalid Username")
+    return
+  }
   return navigateTo(`/${username.value.toLowerCase()}`)
 }
 </script>

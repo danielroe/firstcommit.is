@@ -1,5 +1,6 @@
 import { Config } from 'tailwindcss'
 export default {
+  content: ["./lib/**/*.ts"],
   theme: {
     extend: {
       fontFamily: {
