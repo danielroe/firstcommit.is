@@ -28,11 +28,8 @@ export default defineEventHandler(async event => {
     }
     throw createError({ statusCode: 404, message: 'no commits found' })
   }
-  const html = await $fetch<string>(commit.html_url)
-  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1]
 
   return {
-    ogImage,
     date: commit.commit.author.date,
     avatar: commit.author.avatar_url,
     link: commit.html_url,

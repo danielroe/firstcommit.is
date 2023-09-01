@@ -93,7 +93,6 @@ useServerSeoMeta({
   twitterTitle: 'firstcommit.is - @' + username,
   description: 'The first commit of ' + username + ' on GitHub',
   ogDescription: 'The first commit of ' + username + ' on GitHub',
-  ogImage: commit.value?.ogImage,
   twitterCard: 'summary_large_image',
 })
 
