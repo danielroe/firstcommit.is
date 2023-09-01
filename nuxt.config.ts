@@ -4,7 +4,7 @@ const resolver = createResolver(import.meta.url)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible'],
   devtools: { enabled: true },
   experimental: { typedPages: true, componentIslands: true },
   fontMetrics: {
@@ -30,6 +30,10 @@ export default defineNuxtConfig({
       'Inter:700',
     ]
   },
+  plausible: {
+    domain: 'firstcommit.is',
+    apiHost: '/v',
+  },
   nitro: {
     publicAssets: [
       {
@@ -39,9 +43,13 @@ export default defineNuxtConfig({
       }
     ]
   },
+  routeRules: {
+    '/v/**': { proxy: 'https://v.roe.dev/**' }
+  },
   $production: {
     routeRules: {
       '/**': { isr: true },
+      '/v/**': { isr: false },
       '/oauth/**': { isr: false },
       '/connect/**': { isr: false }
     }

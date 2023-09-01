@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/fontaine": "^0.4.1",
+    "@nuxtjs/plausible": "^0.2.1",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "cal-sans": "^1.0.1",
     "nuxt": "3.7.0",
