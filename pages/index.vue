@@ -29,7 +29,7 @@
         <input
           v-model="username"
           type="text"
-          class="flex-grow pl-2 py-2 text-base lowercase"
+          class="flex-grow pl-2 py-2 lowercase"
           placeholder="danielroe"
           autocapitalize="off"
         >
