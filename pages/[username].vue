@@ -127,34 +127,11 @@
         </svg>
         Find yours
       </NuxtLink>
-      <form
-        class="flex flex-row gap-2 border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden justify-stretch"
-        @submit.prevent="openCommit"
-      >
-        <input
-          v-model="newUsername"
-          type="text"
-          class="pl-2 py-2 lowercase flex-1"
-          :placeholder="username"
-          autocapitalize="off"
-        >
-        <button
-          :disabled="!username.trim()"
-          type="submit"
-          class="my-1 mr-1 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
-          hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4"
-            viewBox="0 0 24 24"
-          ><path
-            fill="currentColor"
-            d="M5 14V5h2v7h10.172l-3.95-3.95l1.414-1.414L21 13l-6.364 6.364l-1.414-1.414l3.95-3.95H5Z"
-          /></svg>
-          <span class="sr-only">Find first commit</span>
-        </button>
-      </form>
+      <UserNameForm
+        v-model="newUsername"
+        :placeholder="username"
+        @on-submit="openCommit"
+      />
     </nav>
   </div>
 </template>

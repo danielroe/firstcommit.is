@@ -22,34 +22,11 @@
       <span class="mx-auto text-sm flex flex-row gap-2 items-center before:border-t-2 before:border-gray-400 before:content-[''] before:w-2 before:h-0 before:inline-block after:border-t-2 after:border-gray-400 after:content-[''] after:w-2 after:h-0 after:inline-block">
         or enter username
       </span>
-      <form
-        class="flex flex-row gap-2 mx-auto border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden"
-        @submit.prevent="openCommit"
-      >
-        <input
-          v-model="username"
-          type="text"
-          class="flex-grow pl-2 py-2 lowercase"
-          placeholder="danielroe"
-          autocapitalize="off"
-        >
-        <button
-          :disabled="!username.trim()"
-          type="submit"
-          class="my-2 mr-2 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
-          hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-4 h-4"
-            viewBox="0 0 24 24"
-          ><path
-            fill="currentColor"
-            d="M5 14V5h2v7h10.172l-3.95-3.95l1.414-1.414L21 13l-6.364 6.364l-1.414-1.414l3.95-3.95H5Z"
-          /></svg>
-          <span class="sr-only">Find first commit</span>
-        </button>
-      </form>
+      <UserNameForm
+        v-model="username"
+        placeholder="danielroe"
+        @on-submit="openCommit"
+      />
     </main>
   </div>
 </template>
