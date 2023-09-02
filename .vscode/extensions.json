@@ -4,6 +4,6 @@
     "vue.volar",
   ],
   "unwantedRecommendations": [
-    "prettier.prettier",
+    "esbenp.prettier-vscode",
   ]
 }
