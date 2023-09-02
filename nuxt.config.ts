@@ -4,6 +4,13 @@ const resolver = createResolver(import.meta.url)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'firstcommit - find your first commit',
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+    },
+  },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible'],
   devtools: { enabled: true },
   experimental: { typedPages: true, componentIslands: true },
