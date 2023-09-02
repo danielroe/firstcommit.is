@@ -29,14 +29,14 @@
         <input
           v-model="username"
           type="text"
-          class="flex-grow pl-2 py-2 lowercase"
+          class="flex-grow pl-2 py-2 text-base lowercase"
           placeholder="danielroe"
           autocapitalize="off"
         >
         <button
           :disabled="!username.trim()"
           type="submit"
-          class="my-2 mr-2 flex-shrink-0 rounded border-transparent border-2 bg-black text-white 
+          class="my-2 mr-2 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
           hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
         >
           <svg
