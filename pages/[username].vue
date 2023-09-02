@@ -19,7 +19,7 @@
           class="rounded-full h-16 w-16 animate-pulse bg-gray-400"
         />
         <img
-          v-else 
+          v-else
           class="rounded-full h-16 w-16"
           :src="commit.avatar"
           :alt="`Avatar for ${commit.username}`"
@@ -53,7 +53,7 @@
       <hr class="my-4">
       <div class="flex flex-row items-center justify-between gap-4">
         <NuxtLink
-          class="flex flex-col gap-2 line-clamp-1" 
+          class="flex flex-col gap-2 line-clamp-1"
           :href="commit?.link"
         >
           <div
@@ -128,7 +128,7 @@
         Find yours
       </NuxtLink>
       <form
-        class="text-sm flex flex-row gap-2 border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden justify-stretch"
+        class="flex flex-row gap-2 border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden justify-stretch"
         @submit.prevent="openCommit"
       >
         <input
@@ -141,7 +141,7 @@
         <button
           :disabled="!username.trim()"
           type="submit"
-          class="my-1 mr-1 flex-shrink-0 rounded border-transparent border-2 bg-black text-white 
+          class="my-1 mr-1 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
           hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
         >
           <svg
@@ -217,7 +217,7 @@ const message = computed(() => {
   if (user.value === username) {
     return `Check out my first commit on GitHub!`
   }
-  
+
   return `Check out ${username}'s first commit on GitHub.`
 
 })
