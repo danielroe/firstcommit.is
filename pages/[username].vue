@@ -128,13 +128,13 @@
         Find yours
       </NuxtLink>
       <form
-        class="text-sm flex flex-row gap-2 border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden justify-stretch"
+        class="flex flex-row gap-2 border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden justify-stretch"
         @submit.prevent="openCommit"
       >
         <input
           v-model="newUsername"
           type="text"
-          class="pl-2 py-2 lowercase flex-1 text-base"
+          class="pl-2 py-2 lowercase flex-1"
           :placeholder="username"
           autocapitalize="off"
         >
