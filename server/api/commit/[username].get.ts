@@ -6,24 +6,33 @@ export default defineEventHandler(async event => {
   const username = getRouterParam(event as H3Event<any>, 'username')
   if (!username || !username.match(/^[\w\-\d]+$/)) throw createError({ message: 'username is required' })
 
-  const results = await $fetch('/search/commits', {
+  const $gh = $fetch.create({
     baseURL: 'https://api.github.com',
     headers: {
       'Authorization': `Bearer ${config.github.token}`,
       'X-GitHub-Api-Version': '2022-11-28',
       Accept: 'application/vnd.github+json'
     },
-    query: {
-      q: `author:${encodeURIComponent(username)}`,
-      order: 'asc',
-      sort: 'committer-date',
-      per_page: 1
-    }
-  }).catch((e) => {
-    console.error(e)
-    throw createError({ statusCode: 404, message: 'couldn\'t find user' })
   })
-  const commit = ResultsSchema._parse(results).output?.items[0]
+
+  const [user, results] = await Promise.allSettled([
+    $gh(`/users/${encodeURIComponent(username)}`),
+    $gh('/search/commits', {
+      query: {
+        q: `author:${encodeURIComponent(username)}`,
+        order: 'asc',
+        sort: 'committer-date',
+        per_page: 1
+      }
+    })
+  ])
+  if (user.status === 'rejected') {
+    throw createError({ statusCode: 404, message: 'user not found' })
+  }
+  if (results.status === 'rejected') {
+    throw createError({ statusCode: 500, message: 'github api error' })
+  }
+  const commit = ResultsSchema._parse(results.value).output?.items[0]
   if (!commit) {
     // @ts-expect-error unknown
     if (results?.total_count) {
@@ -31,14 +40,15 @@ export default defineEventHandler(async event => {
     }
     throw createError({ statusCode: 404, message: 'no commits to show' })
   }
+  const parsedUser = UserSchema._parse(user.value).output
 
   return {
     date: commit.commit.author.date,
-    avatar: commit.author.avatar_url,
+    avatar: parsedUser?.avatar_url || commit.author.avatar_url,
     link: commit.html_url,
     message: commit.commit.message,
-    username: commit.author.login,
-    author: commit.commit.author.name,
+    username: parsedUser?.login || commit.author.login,
+    author: parsedUser?.name || commit.commit.author.name,
     authorUrl: commit.author.html_url,
     org: {
       avatar: commit.repository.owner.avatar_url,
@@ -76,3 +86,9 @@ const ResultsSchema = v.object({
   }))
 })
 
+const UserSchema = v.object({
+  login: v.string(),
+  name: v.string(),
+  html_url: v.string(),
+  avatar_url: v.string(),
+})
