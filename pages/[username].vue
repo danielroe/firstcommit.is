@@ -205,7 +205,7 @@ const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
 
 // if (process.client && !useNuxtApp().isHydrating) {
 //   watch(error, err => {
-//     err?.response?._data?.message
+//     if(err) showError(err)
 //   })
 // }
 
