@@ -21,7 +21,7 @@ export default defineEventHandler(async event => {
     }
   }).catch((e) => {
     console.error(e)
-    throw createError({ statusCode: 404, message: 'no user found' })
+    throw createError({ statusCode: 404, message: 'couldn\'t find user' })
   })
   const commit = ResultsSchema._parse(results).output?.items[0]
   if (!commit) {
@@ -29,7 +29,7 @@ export default defineEventHandler(async event => {
     if (results?.total_count) {
       console.log(JSON.stringify(ResultsSchema._parse(results).issues))
     }
-    throw createError({ statusCode: 404, message: 'no commits found' })
+    throw createError({ statusCode: 404, message: 'no commits to show' })
   }
 
   return {
