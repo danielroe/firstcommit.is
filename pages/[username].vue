@@ -196,19 +196,6 @@ const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
   lazy: true
 })
 
-// if (process.server && !commit.value) {
-//   if(!error.value?.data.message.includes("no user")){
-//     throw createError({ statusCode: 404 })
-//   }
-//   invalidUser.value = true
-// }
-
-// if (process.client && !useNuxtApp().isHydrating) {
-//   watch(error, err => {
-//     if(err) showError(err)
-//   })
-// }
-
 useSeoMeta({
   title: 'firstcommit.is - @' + username,
 })
@@ -242,8 +229,6 @@ const errorMessage = computed(()=>{
   }
   return null
 })
-
-console.log({errorMessage:errorMessage.value});
 
 const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${username}`)}`)
 

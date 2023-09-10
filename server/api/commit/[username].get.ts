@@ -34,10 +34,6 @@ export default defineEventHandler(async event => {
   }
   const commit = ResultsSchema._parse(results.value).output?.items[0]
   if (!commit) {
-    // @ts-expect-error unknown
-    if (results?.total_count) {
-      console.log(JSON.stringify(ResultsSchema._parse(results).issues))
-    }
     throw createError({ statusCode: 404, message: 'no commits to show' })
   }
   const parsedUser = UserSchema._parse(user.value).output
