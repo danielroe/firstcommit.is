@@ -37,14 +37,3 @@ useServerHead({
     </footer>
   </div>
 </template>
-
-
-<!-- global styles -->
-<style>
-
-.toastify.error{
-  background: unset;
-  @apply bg-black text-white rounded; 
-}
-
-</style>
