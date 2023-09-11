@@ -1,6 +1,18 @@
 <template>
   <div class="flex-grow flex flex-col justify-center p-2 gap-6">
     <main
+      v-if="errorMessage"
+      class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-red-400 rounded-md"
+    >
+      <p class="text-red-600 text-sm">
+        Oops! {{ errorMessage.toLowerCase() }}
+      </p>
+      <p class="text-red-500 text-sm">
+        <small>Do you wish to try again?</small>
+      </p>
+    </main>
+    <main
+      v-else
       class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-gray-600 rounded-md"
     >
       <header class="relative flex flex-row items-center gap-4">
@@ -161,16 +173,6 @@ const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
   lazy: true
 })
 
-if (process.server && !commit.value) {
-  throw createError({ statusCode: 404 })
-}
-
-if (process.client && !useNuxtApp().isHydrating) {
-  watch(error, err => {
-    if (err) { showError(err) }
-  })
-}
-
 useSeoMeta({
   title: 'firstcommit.is - @' + username,
 })
@@ -196,8 +198,15 @@ const message = computed(() => {
   }
 
   return `Check out ${username}'s first commit on GitHub.`
-
 })
+
+const errorMessage = computed(()=>{
+  if (error) {
+    return error.value?.data.message || ''
+  }
+  return null
+})
+
 const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${username}`)}`)
 
 async function nativeShare() {
