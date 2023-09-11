@@ -35,7 +35,7 @@ dependencies:
 
 devDependencies:
   '@nuxt/eslint-config':
-    specifier: ^0.1.1
+    specifier: 0.1.1
     version: 0.1.1(eslint@8.48.0)
   eslint:
     specifier: ^8.48.0
