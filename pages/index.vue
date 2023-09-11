@@ -73,7 +73,8 @@ useServerSeoMeta({
 })
 
 const username = ref('')
-function openCommit () {
+
+async function openCommit () {
   return navigateTo(`/${username.value.toLowerCase()}`)
 }
 </script>

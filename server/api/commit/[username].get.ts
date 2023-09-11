@@ -38,7 +38,7 @@ export default defineEventHandler(async event => {
     if (results?.total_count) {
       console.log(JSON.stringify(ResultsSchema._parse(results).issues))
     }
-    throw createError({ statusCode: 404, message: 'no commits found' })
+    throw createError({ statusCode: 404, message: 'no commits to show' })
   }
   const parsedUser = UserSchema._parse(user.value).output
 
