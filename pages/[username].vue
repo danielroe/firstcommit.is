@@ -224,8 +224,8 @@ const message = computed(() => {
 })
 
 const errorMessage = computed(()=>{
-  if(error){
-    return error.value?.data.message || ""
+  if (error) {
+    return error.value?.data.message || ''
   }
   return null
 })
