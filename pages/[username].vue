@@ -63,7 +63,7 @@
         </NuxtLink>
       </header>
       <hr class="my-4">
-      <div class="flex flex-row items-center justify-between gap-4">
+      <div class="flex items-center justify-between gap-4">
         <NuxtLink
           class="flex flex-col gap-2 line-clamp-1"
           :href="commit?.link"
@@ -142,7 +142,7 @@
       <UserNameForm
         v-model="newUsername"
         :placeholder="username"
-        @on-submit="openCommit"
+        @submit="openCommit"
       />
     </nav>
   </div>

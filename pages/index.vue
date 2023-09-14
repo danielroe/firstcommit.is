@@ -25,7 +25,7 @@
       <UserNameForm
         v-model="username"
         placeholder="danielroe"
-        @on-submit="openCommit"
+        @submit="openCommit"
       />
     </main>
   </div>

@@ -4,7 +4,7 @@ defineProps<{
   placeholder?: string
 }>()
 
-defineEmits(['onSubmit'])
+defineEmits(['submit'])
 
 const usernameModel = defineModel<string>()
 </script>
@@ -12,7 +12,7 @@ const usernameModel = defineModel<string>()
 <template>
   <form
     class="grid grid-cols-[1fr_auto] gap-2 mx-auto border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden"
-    @submit.prevent="$emit('onSubmit')"
+    @submit.prevent="$emit('submit')"
   >
     <input
       v-model="usernameModel"
