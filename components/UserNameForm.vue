@@ -11,13 +11,13 @@ const usernameModel = defineModel<string>()
 
 <template>
   <form
-    class="flex flex-row gap-2 mx-auto border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden"
+    class="grid grid-cols-[1fr_auto] gap-2 mx-auto border-black border-2 rounded-md shadow-sm leading-none w-full overflow-hidden"
     @submit.prevent="$emit('onSubmit')"
   >
     <input
       v-model="usernameModel"
       type="text"
-      class="min-w-[16ch] flex-grow pl-2 py-2 lowercase"
+      class="overflow-hidden pl-2 py-2 lowercase"
       :placeholder="placeholder"
       autocapitalize="off"
     >
