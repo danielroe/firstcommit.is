@@ -24,7 +24,7 @@ const usernameModel = defineModel<string>()
     <button
       :disabled="!usernameModel?.trim()"
       type="submit"
-      class="my-2 mr-2 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
+      class="my-1 mr-1 flex-shrink-0 rounded border-transparent border-2 bg-black text-white
           hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
     >
       <svg
