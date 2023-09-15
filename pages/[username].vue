@@ -13,7 +13,7 @@
     </main>
     <main
       v-else
-      class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-gray-600 rounded-md"
+      class="p-4 md:p-8 shadow-md max-w-[500px] w-full mx-auto border-[1px] border-gray-600 rounded-md transition-[padding] ease-out"
     >
       <header class="relative flex flex-row items-center gap-4">
         <div
