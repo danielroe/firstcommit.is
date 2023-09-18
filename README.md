@@ -22,14 +22,16 @@
 
 ## Try it out locally
 
-You will need to generate a new GitHub token [here](https://github.com/settings/tokens), as well as an OAuth client secret and client ID [here](https://github.com/settings/developers).
+1. Generate a new GitHub token [here](https://github.com/settings/tokens).
+2. Create an OAuth application and obtain a client secret and client ID [here](https://github.com/settings/developers).
+
+Set your environment variables in a `.env` file:
 
 ```env
-NUXT_GITHUB_TOKEN=
-NUXT_GITHUB_CLIENT_SECRET=
-NUXT_GITHUB_CLIENT_ID=
+NUXT_GITHUB_TOKEN=your-github-token
+NUXT_GITHUB_CLIENT_SECRET=your-client-secret
+NUXT_GITHUB_CLIENT_ID=your-client-id
 ```
-
 ### Setup
 
 ```bash
