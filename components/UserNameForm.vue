@@ -2,7 +2,7 @@
 
 defineProps<{
   placeholder?: string
-  size?: 'sm' | 'md'
+  density?: 'compact' | 'default'
 }>()
 
 defineEmits(['submit'])
@@ -25,7 +25,7 @@ const usernameModel = defineModel<string>()
     <button
       :disabled="!usernameModel?.trim()"
       type="submit"
-      :class="size === 'sm' ? 'my-1 mr-1' : 'my-2 mr-2'"
+      :class="density === 'compact' ? 'my-1 mr-1' : 'my-2 mr-2'"
       class="flex-shrink-0 rounded border-transparent border-2 bg-black text-white
           hover:bg-white hover:text-black hover:border-black shadow transition-colors p-1"
     >
