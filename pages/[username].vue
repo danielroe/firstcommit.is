@@ -142,6 +142,7 @@
       <UserNameForm
         v-model="newUsername"
         :placeholder="username"
+        size="sm"
         @submit="openCommit"
       />
     </nav>
