@@ -28,10 +28,11 @@
 Set your environment variables in a `.env` file:
 
 ```env
-NUXT_GITHUB_TOKEN=your-github-token
-NUXT_GITHUB_CLIENT_SECRET=your-client-secret
-NUXT_GITHUB_CLIENT_ID=your-client-id
+NUXT_GITHUB_TOKEN=<github token from step 1>
+NUXT_GITHUB_CLIENT_SECRET=<oauth client secret from step 2>
+NUXT_GITHUB_CLIENT_ID=<oauth client id from step 2>
 ```
+
 ### Setup
 
 ```bash
