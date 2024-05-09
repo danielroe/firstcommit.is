@@ -21,7 +21,7 @@
     "valibot": "^0.30.0"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "0.2.0",
+    "@nuxt/eslint-config": "0.3.12",
     "eslint": "8.57.0"
   }
 }
