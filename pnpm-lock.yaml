@@ -43,10 +43,10 @@ importers:
         specifier: 9.3.0
         version: 9.3.0
       typescript:
-        specifier: ^5.4.5
+        specifier: 5.4.5
         version: 5.4.5
       vue-tsc:
-        specifier: ^2.0.19
+        specifier: 2.0.19
         version: 2.0.19(typescript@5.4.5)
 
 packages:
