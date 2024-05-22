@@ -22,6 +22,6 @@
   },
   "devDependencies": {
     "@nuxt/eslint-config": "0.3.13",
-    "eslint": "8.57.0"
+    "eslint": "9.3.0"
   }
 }
