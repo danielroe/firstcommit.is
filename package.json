@@ -7,6 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint .",
+    "test:types": "vue-tsc --noEmit",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -22,7 +23,9 @@
     "valibot": "^0.30.0"
   },
   "devDependencies": {
-    "eslint": "9.3.0"
+    "eslint": "9.3.0",
+    "typescript": "^5.4.5",
+    "vue-tsc": "^2.0.19"
   },
   "packageManager": "pnpm@9.1.1"
 }

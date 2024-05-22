@@ -32,15 +32,15 @@ export default defineEventHandler(async event => {
   if (results.status === 'rejected') {
     throw createError({ statusCode: 500, message: 'github api error' })
   }
-  const commit = ResultsSchema._parse(results.value).output?.items[0]
+  const [commit] = v.parse(ResultsSchema, results.value).items
   if (!commit) {
     // @ts-expect-error unknown property
     if (results?.total_count) {
-      console.log(JSON.stringify(ResultsSchema._parse(results).issues))
+      console.log(JSON.stringify(v.safeParse(ResultsSchema, results).issues))
     }
     throw createError({ statusCode: 404, message: 'no commits to show' })
   }
-  const parsedUser = UserSchema._parse(user.value).output
+  const parsedUser = v.parse(UserSchema, user.value)
 
   return {
     date: commit.commit.author.date,

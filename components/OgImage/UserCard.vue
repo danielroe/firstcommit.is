@@ -22,7 +22,6 @@ defineProps({
       <NuxtTime
         style="font-family: Cal Sans;"
         class=" absolute text-5xl font-semibold right-8 top-8"
-        
         :datetime="commit.date"
         year="numeric"
       />

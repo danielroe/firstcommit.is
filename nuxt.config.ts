@@ -51,9 +51,6 @@ export default defineNuxtConfig({
       ],
     }
   },
-  vue: {
-    defineModel: true,
-  },
   runtimeConfig: {
     url: 'http://localhost:3000',
     github: {
