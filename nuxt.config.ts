@@ -4,7 +4,7 @@ const resolver = createResolver(import.meta.url)
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible', '@nuxt/eslint'],
   devtools: { enabled: true },
   experimental: { typedPages: true, componentIslands: true },
   fontMetrics: {

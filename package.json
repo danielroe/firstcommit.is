@@ -6,11 +6,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "lint": "eslint --ext .vue,.ts,.js,.mjs .",
+    "lint": "eslint .",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/plausible": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
@@ -21,7 +22,6 @@
     "valibot": "^0.30.0"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "0.3.13",
     "eslint": "9.3.0"
   }
 }

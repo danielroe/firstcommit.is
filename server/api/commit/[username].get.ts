@@ -3,7 +3,7 @@ import type { H3Event } from 'h3'
 
 export default defineEventHandler(async event => {
   const config = useRuntimeConfig(event)
-  const username = getRouterParam(event as H3Event<any>, 'username')
+  const username = getRouterParam(event as H3Event, 'username')
   if (!username || !username.match(/^[\w\-\d]+$/)) throw createError({ message: 'username is required' })
 
   const $gh = $fetch.create({
@@ -34,7 +34,7 @@ export default defineEventHandler(async event => {
   }
   const commit = ResultsSchema._parse(results.value).output?.items[0]
   if (!commit) {
-    // @ts-expect-error unknown
+    // @ts-expect-error unknown property
     if (results?.total_count) {
       console.log(JSON.stringify(ResultsSchema._parse(results).issues))
     }
