@@ -23,7 +23,7 @@
     "valibot": "^0.30.0"
   },
   "devDependencies": {
-    "eslint": "9.3.0",
+    "eslint": "9.9.0",
     "typescript": "5.4.5",
     "vue-tsc": "2.0.19"
   },
