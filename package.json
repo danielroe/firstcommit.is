@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxt/eslint": "^0.3.13",
+    "@nuxt/eslint": "^0.5.0",
     "@nuxtjs/fontaine": "^0.4.1",
     "@nuxtjs/plausible": "^1.0.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
@@ -20,12 +20,12 @@
     "nuxt": "3.13.0",
     "nuxt-og-image": "^2.0.23",
     "nuxt-time": "^0.1.1",
-    "valibot": "^0.38.0"
+    "valibot": "^0.42.0"
   },
   "devDependencies": {
     "eslint": "9.9.0",
-    "typescript": "5.5.4",
-    "vue-tsc": "2.0.19"
+    "typescript": "5.6.2",
+    "vue-tsc": "2.1.6"
   },
-  "packageManager": "pnpm@9.8.0"
+  "packageManager": "pnpm@9.10.0"
 }
