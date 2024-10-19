@@ -32,9 +32,8 @@
 </template>
 
 <script setup>
-defineOgImage({
+defineOgImageComponent('Home', {
   title: 'firstcommit.is',
-  component: 'home'
 })
 
 useSeoMeta({
