@@ -16,6 +16,9 @@ export default defineNuxtConfig({
       }
     ],
   },
+  site: {
+    url: 'https://firstcommit.is',
+  },
   app: {
     head: {
       link: [
