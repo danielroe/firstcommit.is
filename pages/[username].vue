@@ -186,10 +186,9 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-defineOgImage({
+defineOgImageComponent('UserCard', {
   title: username,
   commit,
-  component: 'user-card'
 })
 
 const user = useCookie('github-user')
