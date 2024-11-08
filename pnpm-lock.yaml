@@ -16,7 +16,7 @@ importers:
         version: 0.6.1(eslint@9.14.0(jiti@2.4.0))(magicast@0.3.5)(rollup@4.24.3)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.7)(terser@5.36.0))
       '@nuxtjs/fontaine':
         specifier: ^0.4.1
-        version: 0.4.3(magicast@0.3.5)(rollup@4.24.3)
+        version: 0.4.4(magicast@0.3.5)(rollup@4.24.3)
       '@nuxtjs/plausible':
         specifier: ^1.0.0
         version: 1.0.3(magicast@0.3.5)(rollup@4.24.3)
@@ -733,8 +733,8 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
-  '@nuxtjs/fontaine@0.4.3':
-    resolution: {integrity: sha512-2bERBEzJgyKSjUGnQoj4kEFiAQErrG9rpBqzVLVMNTB59Fmep/j77CqT7j7yIKKfsr2W+n5nC7WPjp2bHi994Q==}
+  '@nuxtjs/fontaine@0.4.4':
+    resolution: {integrity: sha512-sC2xsqtFzXDN72fGJc9NxoC+WymJgiVGVL7V/yksUruOqeKhnsmnqx1nXlu88cnt/K9IQADGpOzgvhIjg+G+mg==}
 
   '@nuxtjs/plausible@1.0.3':
     resolution: {integrity: sha512-jf6W9+Q/VhfHk/jal1gp0OpYU2qwq7eOV4evNKvHWKVM0Qbps+LbKSxNcewgqN91tVx9sv4RbnOEJ8Uq0/FRkg==}
@@ -5335,9 +5335,9 @@ snapshots:
       - vue-tsc
       - webpack-sources
 
-  '@nuxtjs/fontaine@0.4.3(magicast@0.3.5)(rollup@4.24.3)':
+  '@nuxtjs/fontaine@0.4.4(magicast@0.3.5)(rollup@4.24.3)':
     dependencies:
-      '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.24.3)
+      '@nuxt/kit': 3.14.159(magicast@0.3.5)(rollup@4.24.3)
       fontaine: 0.5.0
       magic-string: 0.30.12
       pathe: 1.1.2
@@ -7956,7 +7956,7 @@ snapshots:
   nuxt-site-config-kit@2.2.21(magicast@0.3.5)(rollup@4.24.3)(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.24.3)
-      '@nuxt/schema': 3.13.2(rollup@4.24.3)
+      '@nuxt/schema': 3.14.159(magicast@0.3.5)(rollup@4.24.3)
       pkg-types: 1.2.1
       site-config-stack: 2.2.21(vue@3.5.12(typescript@5.6.3))
       std-env: 3.7.0
@@ -7972,7 +7972,7 @@ snapshots:
     dependencies:
       '@nuxt/devtools-kit': 1.6.0(magicast@0.3.5)(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.7)(terser@5.36.0))
       '@nuxt/kit': 3.13.2(magicast@0.3.5)(rollup@4.24.3)
-      '@nuxt/schema': 3.13.2(rollup@4.24.3)
+      '@nuxt/schema': 3.14.159(magicast@0.3.5)(rollup@4.24.3)
       nuxt-site-config-kit: 2.2.21(magicast@0.3.5)(rollup@4.24.3)(vue@3.5.12(typescript@5.6.3))
       pathe: 1.1.2
       pkg-types: 1.2.1
