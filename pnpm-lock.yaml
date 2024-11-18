@@ -19,7 +19,7 @@ importers:
         version: 0.4.4(magicast@0.3.5)(rollup@4.27.2)
       '@nuxtjs/plausible':
         specifier: ^1.0.0
-        version: 1.0.3(magicast@0.3.5)(rollup@4.27.2)
+        version: 1.1.0(magicast@0.3.5)(rollup@4.27.2)
       '@nuxtjs/tailwindcss':
         specifier: ^6.8.0
         version: 6.12.2(magicast@0.3.5)(rollup@4.27.2)
@@ -747,8 +747,8 @@ packages:
   '@nuxtjs/fontaine@0.4.4':
     resolution: {integrity: sha512-sC2xsqtFzXDN72fGJc9NxoC+WymJgiVGVL7V/yksUruOqeKhnsmnqx1nXlu88cnt/K9IQADGpOzgvhIjg+G+mg==}
 
-  '@nuxtjs/plausible@1.0.3':
-    resolution: {integrity: sha512-jf6W9+Q/VhfHk/jal1gp0OpYU2qwq7eOV4evNKvHWKVM0Qbps+LbKSxNcewgqN91tVx9sv4RbnOEJ8Uq0/FRkg==}
+  '@nuxtjs/plausible@1.1.0':
+    resolution: {integrity: sha512-Cxa39bJf19IkDhE0LiI/pD/m7FaHsUWF2ww1CyxbBp0sHrrn7p+5WSKGAaJyImf9pVgOZwr4UMShpFYT2hS+xw==}
 
   '@nuxtjs/tailwindcss@6.12.2':
     resolution: {integrity: sha512-qPJiFH67CkTj/2kBGBzqXihOD1rQXMsbVS4vdQvfBxOBLPfGhU1yw7AATdhPl2BBjO2krjJLuZj39t7dnDYOwg==}
@@ -5335,7 +5335,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@nuxtjs/plausible@1.0.3(magicast@0.3.5)(rollup@4.27.2)':
+  '@nuxtjs/plausible@1.1.0(magicast@0.3.5)(rollup@4.27.2)':
     dependencies:
       '@barbapapazes/plausible-tracker': 0.5.3
       '@nuxt/kit': 3.14.159(magicast@0.3.5)(rollup@4.27.2)
