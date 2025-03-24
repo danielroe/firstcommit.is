@@ -20,7 +20,7 @@
     "nuxt": "3.15.4",
     "nuxt-og-image": "^4.0.0",
     "nuxt-time": "^1.0.0",
-    "valibot": "^0.42.0"
+    "valibot": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "9.22.0",
