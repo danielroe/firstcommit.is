@@ -11,15 +11,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/eslint": "^1.0.0",
+    "@nuxt/devtools": "^2.3.2",
+    "@nuxt/eslint": "^1.2.0",
     "@nuxtjs/fontaine": "^0.5.0",
-    "@nuxtjs/plausible": "^1.0.0",
-    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@nuxtjs/plausible": "^1.2.0",
+    "@nuxtjs/tailwindcss": "^6.13.2",
     "cal-sans": "^1.0.1",
-    "nuxt": "3.15.4",
-    "nuxt-og-image": "^4.0.0",
-    "nuxt-time": "^1.0.0",
+    "nuxt": "3.16.1",
+    "nuxt-og-image": "^5.1.1",
+    "nuxt-time": "^1.0.3",
     "valibot": "^1.0.0"
   },
   "devDependencies": {
@@ -27,5 +27,5 @@
     "typescript": "5.8.2",
     "vue-tsc": "2.2.8"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.7.0"
 }
