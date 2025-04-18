@@ -23,9 +23,9 @@ useServerHead({
       &middot;
       made with ❤️ by <a
         class="font-semibold hover:underline"
-        href="https://x.com/danielcroe"
+        href="https://bsky.app/profile/danielroe.dev"
       >
-        @danielcroe
+        @danielroe.dev
       </a>
       &middot;
       inspiration <a
