@@ -17,7 +17,7 @@
     "@nuxtjs/plausible": "^1.2.0",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "cal-sans": "^1.0.1",
-    "nuxt": "3.17.6",
+    "nuxt": "3.17.7",
     "nuxt-og-image": "^5.1.1",
     "nuxt-time": "^1.0.3",
     "valibot": "^1.0.0"
