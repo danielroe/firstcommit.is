@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "eslint": "9.37.0",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "vue-tsc": "3.1.0"
   },
-  "packageManager": "pnpm@10.17.1"
+  "packageManager": "pnpm@10.18.0"
 }
