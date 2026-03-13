@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { InternalApi } from 'nitropack'
+import type { FetchResult } from '#app'
 
 defineOptions({
   inheritAttrs: false,
@@ -7,7 +7,7 @@ defineOptions({
 
 defineProps({
   commit: {
-    type: Object as () => InternalApi['/api/commit/:username']['get'],
+    type: Object as () => FetchResult<'/api/commit/:username', 'get'>,
     required: true
   }
 })
