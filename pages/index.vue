@@ -20,11 +20,11 @@
         Find your first commit
       </NuxtLink>
       <span class="mx-auto text-sm flex flex-row gap-2 items-center before:border-t-2 before:border-gray-400 before:content-[''] before:w-2 before:h-0 before:inline-block after:border-t-2 after:border-gray-400 after:content-[''] after:w-2 after:h-0 after:inline-block">
-        or enter username
+        or enter username or owner/repo
       </span>
       <UserNameForm
         v-model="username"
-        placeholder="danielroe"
+        placeholder="danielroe or nuxt/nuxt"
         @submit="openCommit"
       />
     </main>
@@ -51,6 +51,6 @@ useServerSeoMeta({
 const username = ref('')
 
 async function openCommit () {
-  return navigateTo(`/${username.value.toLowerCase()}`)
+  return navigateTo(`/${username.value.toLowerCase().trim()}`)
 }
 </script>
