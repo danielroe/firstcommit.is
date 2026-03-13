@@ -9,35 +9,43 @@ export default defineEventHandler(async event => {
     throw createError({ message: 'owner/repo is required' })
   }
 
-  const fullName = `${owner}/${repo}`
+  const ghHeaders = {
+    'Authorization': `Bearer ${config.github.token}`,
+    'X-GitHub-Api-Version': '2022-11-28',
+    Accept: 'application/vnd.github+json'
+  }
 
-  const $gh = $fetch.create({
-    baseURL: 'https://api.github.com',
-    headers: {
-      'Authorization': `Bearer ${config.github.token}`,
-      'X-GitHub-Api-Version': '2022-11-28',
-      Accept: 'application/vnd.github+json'
-    },
-  })
+  const $gh = $fetch.create({ baseURL: 'https://api.github.com', headers: ghHeaders })
 
-  const [repoInfo, results] = await Promise.allSettled([
-    $gh(`/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`),
-    $gh('/search/commits', {
-      query: {
-        q: `repo:${encodeURIComponent(fullName)}`,
-        order: 'asc',
-        sort: 'committer-date',
-        per_page: 1
-      }
+  // Fetch repo info and first page of commits to get pagination Link header
+  const repoPath = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`
+  const [repoInfo, firstPage] = await Promise.allSettled([
+    $gh(repoPath),
+    $fetch.raw(`https://api.github.com${repoPath}/commits`, {
+      query: { per_page: 1 },
+      headers: ghHeaders,
     })
   ])
   if (repoInfo.status === 'rejected') {
     throw createError({ statusCode: 404, message: 'repository not found' })
   }
-  if (results.status === 'rejected') {
+  if (firstPage.status === 'rejected') {
     throw createError({ statusCode: 500, message: 'github api error' })
   }
-  const [commit] = v.parse(ResultsSchema, results.value).items
+
+  // Extract last page from Link header to find the oldest commit
+  const linkHeader = firstPage.value.headers.get('link') || ''
+  const lastPageMatch = linkHeader.match(/[&?]page=(\d+)>;\s*rel="last"/)
+  let commitData
+  if (lastPageMatch) {
+    const lastPage = lastPageMatch[1]
+    commitData = await $gh(`${repoPath}/commits`, { query: { per_page: 1, page: lastPage } })
+  } else {
+    // Only one page of commits
+    commitData = firstPage.value._data
+  }
+
+  const [commit] = v.parse(CommitsSchema, commitData)
   if (!commit) {
     throw createError({ statusCode: 404, message: 'no commits to show' })
   }
@@ -61,33 +69,22 @@ export default defineEventHandler(async event => {
   }
 })
 
-const ResultsSchema = v.object({
-  total_count: v.number(),
-  items: v.array(v.object({
-    html_url: v.string(),
-    repository: v.object({
-      full_name: v.string(),
-      html_url: v.string(),
-      owner: v.object({
-        avatar_url: v.string(),
-        login: v.string(),
-      })
-    }),
-    commit: v.object({
-      message: v.string(),
-      author: v.object({
-        date: v.string(),
-        name: v.string(),
-        email: v.string(),
-      }),
-    }),
+const CommitsSchema = v.array(v.object({
+  html_url: v.string(),
+  commit: v.object({
+    message: v.string(),
     author: v.object({
-      login: v.string(),
-      avatar_url: v.string(),
-      html_url: v.string(),
-    })
-  }))
-})
+      date: v.string(),
+      name: v.string(),
+      email: v.string(),
+    }),
+  }),
+  author: v.object({
+    login: v.string(),
+    avatar_url: v.string(),
+    html_url: v.string(),
+  })
+}))
 
 const RepoSchema = v.object({
   full_name: v.string(),
