@@ -27,5 +27,5 @@
     "typescript": "5.9.3",
     "vue-tsc": "3.3.5"
   },
-  "packageManager": "pnpm@11.6.0"
+  "packageManager": "pnpm@11.7.0"
 }
