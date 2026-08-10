@@ -18,8 +18,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0(magicast@0.5.4)
       '@nuxtjs/plausible':
-        specifier: ^3.0.0
-        version: 3.0.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.133.0)(unplugin@3.3.0(esbuild@0.28.1)(rollup@4.62.4)(vite@7.3.6(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.1)(yaml@2.9.0)))
+        specifier: ^4.0.0
+        version: 4.0.0(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.133.0)(unplugin@3.3.0(esbuild@0.28.1)(rollup@4.62.4)(vite@7.3.6(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.1)(yaml@2.9.0)))
       '@nuxtjs/tailwindcss':
         specifier: ^6.13.2
         version: 6.14.0(magicast@0.5.4)(supports-color@10.2.2)(yaml@2.9.0)
@@ -709,8 +709,8 @@ packages:
   '@nuxtjs/fontaine@0.5.0':
     resolution: {integrity: sha512-68po45LJW1bMrlxPiI96L4lH/8Hom8LDKsUSmIZtgPrtI1HvFvg9Kcj2329DkWIH379hyffT2Qt7/1RgRPVV+A==}
 
-  '@nuxtjs/plausible@3.0.2':
-    resolution: {integrity: sha512-6z01a7XbggSmI4CTWCkDDmLHQNm7wob2dx1QnvpIoo+YEV19298+GsuvlBclXVxXSk7op8r8qJpw25xKo8mzQQ==}
+  '@nuxtjs/plausible@4.0.0':
+    resolution: {integrity: sha512-R2G9BktBVSCG0nDNBSVlC8jDbsYBgrbqmn8wWisiIF9lKfRq99NwIvtw/DLuwexJT5pCYPvBflIof4NS4ZX8Xg==}
 
   '@nuxtjs/tailwindcss@6.14.0':
     resolution: {integrity: sha512-30RyDK++LrUVRgc2A85MktGWIZoRQgeQKjE4CjjD64OXNozyl+4ScHnnYgqVToMM6Ch2ZG2W4wV2J0EN6F0zkQ==}
@@ -6142,7 +6142,7 @@ snapshots:
       - encoding
       - magicast
 
-  '@nuxtjs/plausible@3.0.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.133.0)(unplugin@3.3.0(esbuild@0.28.1)(rollup@4.62.4)(vite@7.3.6(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.1)(yaml@2.9.0)))':
+  '@nuxtjs/plausible@4.0.0(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.133.0)(unplugin@3.3.0(esbuild@0.28.1)(rollup@4.62.4)(vite@7.3.6(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.1)(yaml@2.9.0)))':
     dependencies:
       '@nuxt/kit': 4.5.2(magic-string@1.1.0)(magicast@0.5.4)(oxc-parser@0.133.0)(unplugin@3.3.0(esbuild@0.28.1)(rollup@4.62.4)(vite@7.3.6(@types/node@26.1.2)(jiti@2.7.0)(terser@5.49.1)(yaml@2.9.0)))
       '@plausible-analytics/tracker': 0.4.5
