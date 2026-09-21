@@ -7,7 +7,7 @@ defineOptions({
 
 defineProps({
   commit: {
-    type: Object as () => FetchResult<'/api/commit/:username', 'get'>,
+    type: Object as () => FetchResult<'/api/commit/:owner/:repo', 'get'>,
     required: true
   }
 })
@@ -21,14 +21,14 @@ defineProps({
     >
       <NuxtTime
         style="font-family: Cal Sans;"
-        class=" absolute text-5xl font-semibold right-8 top-8"
+        class="absolute text-5xl font-semibold right-8 top-8"
         :datetime="commit.date"
         year="numeric"
       />
       <img
         class="rounded-full h-48 w-48"
-        :src="commit.avatar"
-        :alt="`Avatar for ${commit.username}`"
+        :src="commit.repo.avatar"
+        :alt="`Avatar for ${commit.repo.owner}`"
       >
       <div
         class="flex flex-col items-start"
@@ -36,9 +36,9 @@ defineProps({
       >
         <span
           style="font-family: Cal Sans;"
-          class=" leading-none text-5xl font-semibold"
-        >{{ commit.author }}</span>
-        <span class="leading-none text-4xl opacity-50">@{{ commit.username }}</span>
+          class="leading-none text-5xl font-semibold"
+        >{{ commit.repo.fullName }}</span>
+        <span class="leading-none text-3xl opacity-50 line-clamp-1">{{ commit.repo.description }}</span>
       </div>
     </header>
     <hr class="my-16 w-full">
@@ -48,7 +48,7 @@ defineProps({
     >
       <div
         class="flex flex-col overflow-hidden max-w-[800px]"
-        style="gap: 2rem" 
+        style="gap: 2rem"
       >
         <span class="text-4xl overflow-hidden">{{ commit.message }}</span>
         <span class="text-3xl">
@@ -58,9 +58,9 @@ defineProps({
           >
             <img
               class="rounded-full h-12 w-12"
-              :src="commit.org.avatar"
+              :src="commit.authorAvatar"
             >
-            {{ commit.org.repository }}
+            {{ commit.author }}
           </span>
         </span>
       </div>
