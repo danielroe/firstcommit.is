@@ -33,12 +33,12 @@
         <img
           v-else
           class="rounded-full h-16 w-16"
-          :src="commit.avatar"
-          :alt="`Avatar for ${commit.username}`"
+          :src="commit.repo.avatar"
+          :alt="`Avatar for ${commit.repo.owner}`"
         >
         <NuxtLink
           class="flex flex-col items-start gap-2"
-          :to="commit?.authorUrl"
+          :to="commit?.repo.url"
         >
           <div
             v-if="!commit"
@@ -48,17 +48,17 @@
             v-else
             class="leading-none text-lg font-cal font-semibold"
           >
-            {{ commit.author }}
+            {{ commit.repo.fullName }}
           </span>
           <div
             v-if="!commit"
-            class="leading-none opacity-50 text-sm h-4 w-24 animate-pulse bg-gray-400"
+            class="leading-none opacity-50 text-sm h-4 w-48 animate-pulse bg-gray-400"
           />
           <span
             v-else
-            class="leading-none opacity-50 text-sm"
+            class="leading-none opacity-50 text-sm line-clamp-1"
           >
-            @{{ commit.username }}
+            {{ commit.repo.description }}
           </span>
         </NuxtLink>
       </header>
@@ -87,8 +87,8 @@
               <img
                 v-else
                 class="rounded-full h-4 w-4"
-                :src="commit.org.avatar"
-                :alt="`Avatar for ${commit.org.name}`"
+                :src="commit.authorAvatar"
+                :alt="`Avatar for ${commit.authorLogin}`"
               >
               <div
                 v-if="!commit"
@@ -96,13 +96,12 @@
               />
               <span
                 v-else
-                v-text="commit.org.repository"
+                v-text="commit.author"
               />
             </span>
           </span>
         </NuxtLink>
         <div class="flex flex-row gap-2">
-          <!-- share to twitter url -->
           <NuxtLink
             class="flex-shrink-0 rounded border-transparent border-2 bg-black text-white hover:border-black hover:bg-white hover:text-black text-sm shadow px-2 py-1 md:px-3 md:py-2 flex flex-row gap-2 items-center transition-colors"
             :href="shareLink"
@@ -124,8 +123,7 @@
     <nav class="flex flex-row gap-2 justify-center max-w-[500px] w-full mx-auto">
       <NuxtLink
         class="rounded flex-shrink-0 bg-black text-white text-sm shadow px-3 py-2 flex flex-row gap-2 items-center"
-        href="/connect/github"
-        external
+        to="/"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -134,14 +132,14 @@
         >
           <path
             fill="currentColor"
-            d="M12.001 2c-5.525 0-10 4.475-10 10a9.994 9.994 0 0 0 6.837 9.488c.5.087.688-.213.688-.476c0-.237-.013-1.024-.013-1.862c-2.512.463-3.162-.612-3.362-1.175c-.113-.288-.6-1.175-1.025-1.413c-.35-.187-.85-.65-.013-.662c.788-.013 1.35.725 1.538 1.025c.9 1.512 2.337 1.087 2.912.825c.088-.65.35-1.087.638-1.337c-2.225-.25-4.55-1.113-4.55-4.938c0-1.088.387-1.987 1.025-2.688c-.1-.25-.45-1.275.1-2.65c0 0 .837-.262 2.75 1.026a9.28 9.28 0 0 1 2.5-.338c.85 0 1.7.112 2.5.337c1.913-1.3 2.75-1.024 2.75-1.024c.55 1.375.2 2.4.1 2.65c.637.7 1.025 1.587 1.025 2.687c0 3.838-2.337 4.688-4.563 4.938c.363.312.676.912.676 1.85c0 1.337-.013 2.412-.013 2.75c0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10Z"
+            d="M5 14V5h2v7h10.172l-3.95-3.95l1.414-1.414L21 13l-6.364 6.364l-1.414-1.414l3.95-3.95H5Z"
           />
         </svg>
-        Find yours
+        Try another
       </NuxtLink>
       <UserNameForm
-        v-model="newUsername"
-        :placeholder="username"
+        v-model="newInput"
+        :placeholder="`${owner}/${repo}`"
         density="compact"
         @submit="openCommit"
       />
@@ -153,7 +151,6 @@
 import 'cal-sans'
 
 definePageMeta({
-  alias: ['/commit/:username'],
   middleware: to => {
     if (to.path !== to.path.toLowerCase()) {
       return to.path.toLowerCase()
@@ -161,53 +158,41 @@ definePageMeta({
   }
 })
 
+const route = useRoute('owner-repo')
+const owner = route.params.owner
+const repo = route.params.repo
+const fullName = `${owner}/${repo}`
 
-const route = useRoute('username')
-const username = route.params.username
-
-const newUsername = ref('')
-function openCommit () {
-  return navigateTo(`/${newUsername.value.toLowerCase().trim()}`)
+const newInput = ref('')
+function openCommit() {
+  const val = newInput.value.toLowerCase()
+  return navigateTo(val.includes('/') ? `/${val}` : `/${val}`)
 }
 
-const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
-  lazy: true
-})
+const { data: commit, error } = await useFetch(`/api/commit/${owner}/${repo}`, { lazy: true })
 
-useSeoMeta({
-  title: 'firstcommit.is - @' + username,
-})
+useSeoMeta({ title: `firstcommit.is - ${fullName}` })
 
 useServerSeoMeta({
-  ogTitle: 'firstcommit.is - @' + username,
-  twitterTitle: 'firstcommit.is - @' + username,
-  description: 'The first commit of ' + username + ' on GitHub',
-  ogDescription: 'The first commit of ' + username + ' on GitHub',
+  ogTitle: `firstcommit.is - ${fullName}`,
+  twitterTitle: `firstcommit.is - ${fullName}`,
+  description: `The first commit of ${fullName} on GitHub`,
+  ogDescription: `The first commit of ${fullName} on GitHub`,
   twitterCard: 'summary_large_image',
 })
 
-defineOgImageComponent('UserCard', {
-  title: username,
-  commit,
-})
+defineOgImageComponent('RepoCard', { title: fullName, commit })
 
-const user = useCookie('github-user')
-const message = computed(() => {
-  if (user.value === username) {
-    return `Check out my first commit on GitHub!`
-  }
+const message = computed(() => `Check out the first commit of ${fullName}!`)
 
-  return `Check out ${username}'s first commit on GitHub.`
-})
-
-const errorMessage = computed(()=>{
+const errorMessage = computed(() => {
   if (error) {
     return error.value?.data.message || ''
   }
   return null
 })
 
-const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${username}`)}`)
+const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${fullName}`)}`)
 
 async function nativeShare() {
   try {
@@ -215,11 +200,11 @@ async function nativeShare() {
       return await navigator.share({
         title: 'firstcommit.is',
         text: message.value,
-        url: `https://firstcommit.is/${username}`,
+        url: `https://firstcommit.is/${fullName}`,
       })
     }
   } catch {
-    // ignore errors sharing to native share and fall back directly to Twitter
+    // fall back to Twitter
   }
   return navigateTo(shareLink.value, { external: true, open: { target: '_blank' } })
 }
