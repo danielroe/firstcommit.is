@@ -19,12 +19,10 @@ defineProps({
       class="relative flex flex-row items-center w-full"
       style="gap: 2rem"
     >
-      <NuxtTime
+      <span
         style="font-family: Cal Sans;"
         class=" absolute text-5xl font-semibold right-8 top-8"
-        :datetime="commit.date"
-        year="numeric"
-      />
+      >{{ new Date(commit.date).getUTCFullYear() }}</span>
       <img
         class="rounded-full h-48 w-48"
         :src="commit.avatar"
@@ -41,7 +39,7 @@ defineProps({
         <span class="leading-none text-4xl opacity-50">@{{ commit.username }}</span>
       </div>
     </header>
-    <hr class="my-16 w-full">
+    <hr class="my-16 w-full border-t border-solid border-gray-200">
     <div
       class="flex flex-row w-full items-center justify-between"
       style="gap: 1rem;"

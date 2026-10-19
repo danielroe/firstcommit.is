@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-defineOgImageComponent('Home', {
+defineOgImage('Home', {
   title: 'firstcommit.is',
 })
 
