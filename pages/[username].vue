@@ -200,12 +200,7 @@ const message = computed(() => {
   return `Check out ${username}'s first commit on GitHub.`
 })
 
-const errorMessage = computed(()=>{
-  if (error) {
-    return error.value?.data.message || ''
-  }
-  return null
-})
+const errorMessage = computed(() => (error.value?.data as { message?: string } | undefined)?.message || '')
 
 const shareLink = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(message.value + `\n\nhttps://firstcommit.is/${username}`)}`)
 
