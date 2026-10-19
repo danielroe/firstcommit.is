@@ -1,11 +1,7 @@
-import { createResolver } from 'nuxt/kit'
-
-const resolver = createResolver(import.meta.url)
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-08-19',
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible', '@nuxt/eslint'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', '@nuxt/fonts', 'nuxt-og-image', '@nuxtjs/plausible', '@nuxt/eslint'],
   devtools: { enabled: true },
   experimental: { typedPages: true, componentIslands: true },
   fontMetrics: {
@@ -14,6 +10,11 @@ export default defineNuxtConfig({
         family: 'Cal Sans',
         src: '../node_modules/cal-sans/fonts/webfonts/CalSans-SemiBold.woff2'
       }
+    ],
+  },
+  fonts: {
+    families: [
+      { name: 'Cal Sans', provider: 'local', weights: [600], global: true },
     ],
   },
   site: {
@@ -65,15 +66,9 @@ export default defineNuxtConfig({
     }
   },
   ogImage: {
-    fonts: [
-      'Inter:400',
-      'Inter:700',
-      {
-        name: 'Cal Sans',
-        weight: 600,
-        path: '../node_modules/cal-sans/fonts/webfonts/CalSans-SemiBold.woff',
-      }
-    ]
+    defaults: {
+      height: 630,
+    },
   },
   plausible: {
     domain: 'firstcommit.is',
@@ -83,13 +78,6 @@ export default defineNuxtConfig({
     prerender: {
       routes: ['/']
     },
-    publicAssets: [
-      {
-        baseURL: '/fonts',
-        dir: resolver.resolve('./node_modules/cal-sans/fonts/webfonts'),
-        maxAge: 60 * 60 * 24 * 365
-      }
-    ]
   },
   routeRules: {
     '/_v/**': { proxy: 'https://v.roe.dev/**' }
