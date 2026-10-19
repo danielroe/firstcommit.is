@@ -167,7 +167,7 @@ const username = route.params.username
 
 const newUsername = ref('')
 function openCommit () {
-  return navigateTo(`/${newUsername.value.toLowerCase()}`)
+  return navigateTo(`/${newUsername.value.toLowerCase().trim()}`)
 }
 
 const { data: commit, error } = await useFetch(`/api/commit/${username}`, {
