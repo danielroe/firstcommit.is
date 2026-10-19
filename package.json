@@ -21,7 +21,6 @@
     "cal-sans": "^1.0.1",
     "nuxt": "4.6.2",
     "nuxt-og-image": "^7.0.7",
-    "nuxt-time": "^1.0.3",
     "satori": "^0.47.1",
     "valibot": "^1.0.0"
   },

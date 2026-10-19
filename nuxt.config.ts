@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-08-19',
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', '@nuxt/fonts', 'nuxt-time', 'nuxt-og-image', '@nuxtjs/plausible', '@nuxt/eslint'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/fontaine', '@nuxt/fonts', 'nuxt-og-image', '@nuxtjs/plausible', '@nuxt/eslint'],
   devtools: { enabled: true },
   experimental: { typedPages: true, componentIslands: true },
   fontMetrics: {
