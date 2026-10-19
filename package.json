@@ -38,5 +38,6 @@
       "version": "12.3.4",
       "onFail": "download"
     }
-  }
+  },
+  "packageManager": "pnpm@12.3.4"
 }
