@@ -21,13 +21,13 @@
     "cal-sans": "^1.0.1",
     "nuxt": "4.6.2",
     "nuxt-og-image": "^7.0.7",
-    "satori": "^0.47.1",
+    "satori": "^0.63.0",
     "valibot": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "10.13.0",
     "typescript": "5.9.3",
-    "vue-tsc": "3.3.11"
+    "vue-tsc": "3.3.13"
   },
   "devEngines": {
     "runtime": {
@@ -37,9 +37,9 @@
     },
     "packageManager": {
       "name": "pnpm",
-      "version": "12.3.4",
+      "version": "12.14.0",
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@12.3.4"
+  "packageManager": "pnpm@12.14.0"
 }
