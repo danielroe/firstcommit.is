@@ -27,7 +27,7 @@
   "devDependencies": {
     "eslint": "10.13.0",
     "typescript": "5.9.3",
-    "vue-tsc": "3.3.13"
+    "vue-tsc": "3.3.14"
   },
   "devEngines": {
     "runtime": {
@@ -37,9 +37,9 @@
     },
     "packageManager": {
       "name": "pnpm",
-      "version": "12.16.0",
+      "version": "12.16.1",
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@12.16.0"
+  "packageManager": "pnpm@12.16.1"
 }
