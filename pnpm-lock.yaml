@@ -207,8 +207,8 @@ importers:
         specifier: ^2.6.2
         version: 2.6.2
       cal-sans:
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^2.0.0
+        version: 2.1.1
       nuxt:
         specifier: 4.7.0
         version: 4.7.0(9a546aae9c597c77f808b901c67111b9)
@@ -2386,9 +2386,8 @@ packages:
   cacheable@2.5.0:
     resolution: {integrity: sha512-60cyAOytib/OzBw1JNSoSV/boK1AtHryDIjvVBk7XbN4ugfkM3+Sry7fEjNgPMGgOjuaZPAp8ruZ0Cxafwyq9g==}
 
-  cal-sans@1.0.1:
-    resolution: {integrity: sha512-XwN3/7jez8WmFVcNnNqO2K9lh133KiIcURCyGFnSM+ZmNZ8zIcOTNfr3SpenLAkRceYsq+fQNX/PL4C1rIkEPQ==}
-    deprecated: 'Cal Sans v2 is out: npm i cal-sans@latest. To keep the v1 look, set font-weight: 700 and font-variation-settings: "GEOM" 50, "opsz" 45; otherwise v2 renders as Cal Sans UI Regular, lighter and tightly spaced.'
+  cal-sans@2.1.1:
+    resolution: {integrity: sha512-Aze+2yZNbKtzUvi17PjHkmja1CMvse1oyPs3GTn61nfNvaJhVGf13qtwgG3Zu1IunVL1mTVpaWcBBOPpTN0Dkg==}
 
   call-bind-apply-helpers@1.0.2:
     resolution: {integrity: sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==}
@@ -7823,7 +7822,7 @@ snapshots:
       keyv: 5.6.0
       qified: 0.10.1
 
-  cal-sans@1.0.1: {}
+  cal-sans@2.1.1: {}
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
